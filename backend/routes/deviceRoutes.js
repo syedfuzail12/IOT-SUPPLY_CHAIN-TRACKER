@@ -1,3 +1,23 @@
+const express = require("express")
+const router = express.Router()
+const { authMiddleware } = require("../middleware/authMiddleware")
+const {
+  registerDevice,
+  shipDevice,
+  activateDevice,
+  getDevice,
+  getAllDevicesByRole,
+} = require("../controllers/deviceController");
+const auth = require("../middleware/authMiddleware"); // ⬅️ middleware for req.user
+
+router.get("/",authMiddleware, getAllDevicesByRole)
+router.post("/register", authMiddleware, registerDevice);
+router.post("/ship", authMiddleware, shipDevice);
+router.post("/activate", authMiddleware, activateDevice);
+router.get("/:serial", getDevice);
+
+module.exports = router;
+/** 
 const express = require("express");
 const router = express.Router();
 const contract = require("../config/blockchain");
@@ -80,3 +100,6 @@ router.get("/:serial", async (req, res) => {
   
 
 module.exports = router;
+
+
+*/
