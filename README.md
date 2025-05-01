@@ -32,8 +32,25 @@ A modern full-stack web application that securely tracks IoT devices across the 
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/supply-chain-iot-blockchain.git
-cd supply-chain-iot-blockchain
+git clone https://github.com/Shash2i1/IOT-SUPPLY_CHAIN-TRACKER.git
+cd IOT-SUPPLY_CHAIN-TRACKER
+
+# 📁 Navigate to the contracts directory
+cd smart-contracts  # or wherever your smart contracts are
+
+# 🛠 Install Hardhat and dependencies
+npm install 
+
+# 🧱 Compile smart contracts
+npx hardhat compile
+
+# 🚀 Start local Hardhat node (development blockchain)
+npx hardhat node
+
+# 🔐 Deploy contracts to local network
+npx hardhat run scripts/deploy.js --network localhost
+
+
 
 # Install backend dependencies
 cd backend
